@@ -12,18 +12,21 @@ fn main() {
         : horrorshow::helper::doctype::HTML;
         html {
             head {
-                title : content["title"].as_str()
+                title : content["title"].as_str();
+                link(rel="stylesheet", href="styles.css");
             }
             body {
-                @ for plant in content["plants"].members() {
-                    div {
-                        img(src=plant["picture"].as_str());
-                        p { b : plant["name"].as_str() }
-                        p : if let Some(price) = plant["price"].as_f64() {
-                            format!("${:.2}", price)
-                        }
-                        else {
-                            "".to_string()
+                div(class="plant-list") {
+                    @ for plant in content["plants"].members() {
+                        div(class="plant") {
+                            img(src=plant["picture"].as_str());
+                            p { b : plant["name"].as_str() }
+                            p : if let Some(price) = plant["price"].as_f64() {
+                                format!("${:.2}", price)
+                            }
+                            else {
+                                "".to_string()
+                            }
                         }
                     }
                 }
