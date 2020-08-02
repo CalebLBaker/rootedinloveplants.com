@@ -52,6 +52,25 @@ fn main() {
                 link(rel="stylesheet", href="styles.css", type="text/css");
             }
             body {
+                script { :
+                    // Initialize Facebook messenger API
+                    "window.fbAsyncInit = function(){\
+                        FB.init({\
+                            appId: '720704568710810',\
+                            autoLogAppEvents: true,\
+                            xfbml: true,\
+                            version: 'v0.1'\
+                        });\
+                    };\
+                    (function(d, s, id){\
+                        var js, fjs = d.getElementsByTagName(s)[0];\
+                        if (d.getElementById(id)) return;\
+                        js = d.createElement(s); js.id = id;\
+                        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';\
+                        fjs.parentNode.insertBefore(js, fjs);\
+                    }(document, 'script', 'facebook-jssdk'));"
+                }
+                script(async, defer, crossorigin="anonymous", src="https://connect.facebook.net/en_US/sdk.js");
                 div(class="plant-list") {
                     @ for plant in content["plants"].members() {
                         : make_plant(plant);
