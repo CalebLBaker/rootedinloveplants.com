@@ -18,3 +18,8 @@ p {
     padding-bottom: 6px;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
