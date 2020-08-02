@@ -2,11 +2,11 @@
     "title" : "Rooted in Love",
     "plants" : [
         {
-            "picture" : "images/plant.webp",
-            "name" : "plant",
-            "price" : 4.50,
+            "picture" : "images/ivy baby four leaf.jpg",
+            "name" : "Rooted English Ivy",
+            "price" : 5.00,
             "description" :
-                "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
+                "This is a wonderful little plant. This rooted ivy is well established and is ready to thrive under your care. English ivy is a very good beginner plant. It loves bright indirect sunlight, watering when it starts to get a bit dry, and lots of humidity "
         },
         {
             "picture" : "images/plant.webp",
