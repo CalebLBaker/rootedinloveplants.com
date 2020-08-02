@@ -30,7 +30,7 @@ fn make_plant(plant : &json::JsonValue) -> Box<dyn horrorshow::RenderBox + '_> {
                 img(src=image, class="picture");
                 h2 : name;
                 h3 : cost;
-                p : plant["description"].as_str();
+                p(class="description") : plant["description"].as_str();
             }
         }
     }
