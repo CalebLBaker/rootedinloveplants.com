@@ -1,0 +1,16 @@
+{
+    "title" : "Rooted in Love",
+    "plants" : [
+        {
+            "picture" : "images/plant.jpeg",
+            "name" : "plant",
+            "price" : 4.50
+        },
+        {
+            "picture" : "images/plant.jpeg",
+            "name" : "other plant",
+            "price" : 15.23
+        }
+    ]
+}
+
