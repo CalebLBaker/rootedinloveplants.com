@@ -1,5 +1,6 @@
 {
     "title" : "Rooted in Love",
+    "banner": "images/banner.jpeg",
     "plants" : [
         {
             "picture" : "images/ivy baby four leaf.jpg",
