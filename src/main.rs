@@ -52,6 +52,9 @@ fn main() {
                 link(rel="stylesheet", href="styles.css", type="text/css");
             }
             body {
+                header {
+                    img(src=content["banner"].as_str());
+                }
                 div(class="plant-list") {
                     @ for plant in content["plants"].members() {
                         : make_plant(plant);
