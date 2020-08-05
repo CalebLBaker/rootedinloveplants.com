@@ -6,9 +6,10 @@ p {
     margin: 0;
 }
 
-.plant-list {
+#plant-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .plant {
@@ -21,5 +22,29 @@ p {
 a {
     color: black;
     text-decoration: none;
+}
+
+#banner {
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 99%;
+    height: 50vh;
+}
+
+header {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
