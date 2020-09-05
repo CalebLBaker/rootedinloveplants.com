@@ -6,7 +6,7 @@ use serde::Deserialize;
 mod credentials;
 
 const SERVER_ROOT : &str = "/content";
-const DESTINATION : &str = "calebbaker774@gmail.com";
+const DESTINATION : &str = "rootedinloveplants@gmail.com";
 
 #[derive(Deserialize)]
 struct EmailRequest {

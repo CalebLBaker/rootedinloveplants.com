@@ -2,12 +2,11 @@
 Cargo.lock
 Dockerfile
 .dockerignore
-.firebase
-firebase.json
-.firebaserc
+.gcloudignore
 .git
 .gitignore
 images_extra
 index.html
 target
+vendor/
 
