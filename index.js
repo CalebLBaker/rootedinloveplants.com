@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function resizePopups() {
     var popups = document.getElementsByClassName("popup");
     var docElement = document.documentElement;
     var aspectRatio = docElement.clientWidth / docElement.clientHeight;
@@ -27,7 +27,30 @@ $(document).ready(function() {
             }
         }
     }
+}
 
+$(document).ready(() => {
     $("a.plant").fancybox();
+    $("a#emailLink").fancybox();
+    resizePopups();
+    window.addEventListener("resize", resizePopups);
 });
+
+function displayEmailForm(name) {
+    document.getElementById("subject").value = "Interested in " + name;
+    document.getElementById("emailLink").click();
+}
+
+function sendEmail() {
+    var body = document.getElementById("body");
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open("POST", "http://localhost:8080");
+    httpRequest.send(JSON.stringify({
+        "reply_to": document.getElementById("emailAddress").value,
+        "subject": document.getElementById("subject").value,
+        "body": body.value
+    }));
+    document.getElementById("body").value = "";
+    $.fancybox.close();
+}
 

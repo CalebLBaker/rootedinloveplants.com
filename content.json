@@ -82,7 +82,8 @@
         {
             "picture" : "images/plant.webp",
             "name" : "other plant",
-            "price" : 15.23
+            "price" : 15.23,
+            "description": "This plant has a description too now"
         }
     ]
 }

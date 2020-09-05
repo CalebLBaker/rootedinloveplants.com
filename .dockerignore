@@ -1,0 +1,13 @@
+*.sh
+Cargo.lock
+Dockerfile
+.dockerignore
+.firebase
+firebase.json
+.firebaserc
+.git
+.gitignore
+images_extra
+index.html
+target
+
