@@ -78,11 +78,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                     a(id="emailLink", href="#emailForm");
                     div(id="emailForm") {
                         label: "Email Address:";
-                        input(id="emailAddress", type="text");
+                        input(id="emailAddress", type="email");
                         label: "Subject:";
                         input(id="subject", type="text");
                         label: "Message";
-                        textarea(id="body", rows="16", cols="80");
+                        textarea(id="body", rows="16", cols="120");
                         button(onclick="sendEmail();") : "Send";
                     }
                 }
