@@ -86,6 +86,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         button(onclick="sendEmail();") : "Send";
                     }
                 }
+                div(id="successToast", class="toast") : "Message Sent";
+                div(id="errorToast", class="toast") : "Message Could Not Be Sent";
                 script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js");
                 script(type="text/javascript", src="fancybox/jquery.fancybox-1.3.4.pack.js");
 

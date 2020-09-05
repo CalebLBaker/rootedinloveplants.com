@@ -39,6 +39,28 @@ a {
     grid-template-columns: 1fr
 }
 
+.toast{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    display: inline-block;
+    text-align: center;
+    border-radius: 12px;
+    position: fixed;
+    left: 50%;
+    bottom: 2%;
+    z-index: 1;
+    padding: 8px;
+}
+
+#successToast {
+    background-color: lime;
+}
+
+#errorToast {
+    background-color: red;
+}
+
 textarea {
     font-family:sans-serif
 }

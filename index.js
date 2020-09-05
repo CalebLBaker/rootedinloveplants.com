@@ -41,16 +41,33 @@ function displayEmailForm(name) {
     document.getElementById("emailLink").click();
 }
 
+function displayToast(id) {
+    var toast = document.getElementById(id);
+    toast.style.opacity = 1;
+    setTimeout(() => { toast.style.opacity = 0; }, 2800);
+}
+
 function sendEmail() {
     var body = document.getElementById("body");
     var httpRequest = new XMLHttpRequest();
+
+    httpRequest.onreadystatechange = (() => {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                displayToast("successToast");
+                body.value = "";
+            } else {
+                displayToast("errorToast");
+            }
+            $.fancybox.close();
+        }
+    });
+
     httpRequest.open("POST", "http://localhost:8080");
     httpRequest.send(JSON.stringify({
         "reply_to": document.getElementById("emailAddress").value,
         "subject": document.getElementById("subject").value,
         "body": body.value
     }));
-    document.getElementById("body").value = "";
-    $.fancybox.close();
 }
 
