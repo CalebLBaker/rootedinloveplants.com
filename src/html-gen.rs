@@ -77,7 +77,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 div(style="display:none") {
                     a(id="emailLink", href="#emailForm");
                     div(id="emailForm") {
-                        label: "Email Address:";
+                        label: "Enter Your Email Address:";
                         input(id="emailAddress", type="email");
                         label: "Subject:";
                         input(id="subject", type="text");
