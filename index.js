@@ -63,7 +63,7 @@ function sendEmail() {
         }
     });
 
-    httpRequest.open("POST", "http://localhost:8080");
+    httpRequest.open("POST", "https://rootedinloveplants.com");
     httpRequest.send(JSON.stringify({
         "reply_to": document.getElementById("emailAddress").value,
         "subject": document.getElementById("subject").value,
