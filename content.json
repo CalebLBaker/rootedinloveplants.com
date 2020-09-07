@@ -1,5 +1,6 @@
 {
     "title" : "Rooted in Love",
+    "icon": "images/leaf.png",
     "banner": "images/banner option 1.jpg",
     "plants" : [
         {
@@ -85,6 +86,15 @@
             "price" : 15.23,
             "description": "This plant has a description too now"
         }
-    ]
+    ],
+    "email_button": {
+        "icon": "images/envelope.webp",
+        "text": "Email Us"
+    },
+    "success_toast": "Message Sent",
+    "error_toast": "Message Could Not Be Sent",
+    "address_label": "Enter Your Email Address:",
+    "subject_label": "Subject:",
+    "body_label": "Message:"
 }
 

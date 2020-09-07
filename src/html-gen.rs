@@ -14,13 +14,26 @@ struct Plant {
 }
 
 #[derive(Deserialize)]
-struct Content {
-    title: String,
-    banner: String,
-    plants: Vec<Plant>,
+struct Button {
+    icon: String,
+    text: String,
 }
 
-fn make_plant(plant : &Plant) -> Box<dyn horrorshow::RenderBox + '_> {
+#[derive(Deserialize)]
+struct Content {
+    title: String,
+    icon: String,
+    banner: String,
+    email_button: Button,
+    plants: Vec<Plant>,
+    success_toast: String,
+    error_toast: String,
+    address_label: String,
+    subject_label: String,
+    body_label: String
+}
+
+fn make_plant<'a>(plant : &'a Plant, email_button : &'a Button) -> Box<dyn horrorshow::RenderBox + 'a> {
     let plant_id = unsafe {
         let plant_id = NEXT_PLANT_ID;
         NEXT_PLANT_ID += 1;
@@ -43,7 +56,10 @@ fn make_plant(plant : &Plant) -> Box<dyn horrorshow::RenderBox + '_> {
                 h2 : name;
                 h3 : cost;
                 p(class="description") : plant.description.as_str();
-                button(onclick=format!("displayEmailForm('{}');", name)) : "Email Us";
+                div(onclick=format!("displayEmailForm('{}');", name), class="emailButton"){
+                    img(src=email_button.icon.as_str(), class="emailIcon");
+                    p(class="emailButtonText") : email_button.text.as_str();
+                }
             }
         }
     }
@@ -63,6 +79,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             head {
                 title : content.title.as_str();
                 link(rel="stylesheet", href="fancybox/jquery.fancybox-1.3.4.css", type="text/css", media="screen");
+                link(rel="icon", href=content.icon.as_str());
                 style : horrorshow::Raw(minified_css.as_str());
             }
             body {
@@ -71,23 +88,23 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
                 div(id="plant-list") {
                     @ for plant in content.plants.iter() {
-                        : make_plant(plant);
+                        : make_plant(plant, &content.email_button);
                     }
                 }
                 div(style="display:none") {
                     a(id="emailLink", href="#emailForm");
                     div(id="emailForm") {
-                        label: "Enter Your Email Address:";
+                        label: content.address_label.as_str();
                         input(id="emailAddress", type="email");
-                        label: "Subject:";
+                        label: content.subject_label.as_str();
                         input(id="subject", type="text");
-                        label: "Message";
+                        label: content.body_label.as_str();
                         textarea(id="body", rows="16", cols="120");
                         button(onclick="sendEmail();") : "Send";
                     }
                 }
-                div(id="successToast", class="toast") : "Message Sent";
-                div(id="errorToast", class="toast") : "Message Could Not Be Sent";
+                div(id="successToast", class="toast") : content.success_toast.as_str();
+                div(id="errorToast", class="toast") : content.error_toast.as_str();
                 script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js");
                 script(type="text/javascript", src="fancybox/jquery.fancybox-1.3.4.pack.js");
 

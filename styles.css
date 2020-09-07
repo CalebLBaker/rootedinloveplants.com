@@ -26,6 +26,8 @@ a {
 
 #banner {
     display: block;
+    margin-top: 0px;
+    padding-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
@@ -61,6 +63,25 @@ a {
     background-color: red;
 }
 
+.emailButton {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: paleturquoise;
+    margin-top: 5px;
+    width: max-content;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.emailIcon {
+    width: 50px;
+}
+
+.emailButtonText {
+    width: 40px;
+}
+
 textarea {
     font-family:sans-serif
 }
@@ -70,6 +91,8 @@ header {
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 body {
@@ -77,5 +100,7 @@ body {
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
