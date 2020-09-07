@@ -1,7 +1,5 @@
 *.sh
 Cargo.lock
-Dockerfile
-.dockerignore
 .gcloudignore
 .git
 .gitignore
