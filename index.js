@@ -5,7 +5,7 @@ function resizeStuff() {
     var aspectRatio = docElement.clientWidth / docElement.clientHeight;
     var plants = document.getElementsByClassName("plant");
     var popups = document.getElementsByClassName("popup");
-    var plantWidth = `${100.0 / Math.floor(Math.sqrt(aspectRatio) * plantSizeFactor)}%`;
+    var plantWidth = (100.0 / Math.floor(Math.sqrt(aspectRatio) * plantSizeFactor)) + "%";
     for (var i = 0; i < plants.length; ++i) {
         plants.item(i).style.width = plantWidth;
     }
@@ -30,7 +30,7 @@ function resizeStuff() {
                 // The popup is inclined to be taller than the screen. Make it not.
                 picture.style.height = "40vh";
                 var width = 80 * popupAspectRatio / aspectRatio;
-                description.style.width = `${width}vw`;
+                description.style.width = width + "vw";
             }
         }
     }
@@ -43,7 +43,7 @@ function setFontSize(tagName, fontSize) {
     }
 }
 
-$(document).ready(() => {
+$(document).ready(function() {
     $("a.plant").fancybox();
     $("a#emailLink").fancybox();
 
@@ -73,14 +73,14 @@ function displayEmailForm(name) {
 function displayToast(id) {
     var toast = document.getElementById(id);
     toast.style.opacity = 1;
-    setTimeout(() => { toast.style.opacity = 0; }, 2800);
+    setTimeout(function() { toast.style.opacity = 0; }, 2800);
 }
 
 function sendEmail() {
     var body = document.getElementById("body");
     var httpRequest = new XMLHttpRequest();
 
-    httpRequest.onreadystatechange = (() => {
+    httpRequest.onreadystatechange = (function() {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 displayToast("successToast");

@@ -7,6 +7,7 @@ mod credentials;
 
 const SERVER_ROOT : &str = "/content";
 // const SERVER_ROOT : &str = "/home/caleb/src/rootedinloveplants";
+// const SERVER_ROOT : &str = "/home/caleb/rootedinloveplants.com";
 const DESTINATION : &str = "rootedinloveplants@gmail.com";
 
 #[derive(Deserialize)]

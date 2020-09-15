@@ -88,7 +88,7 @@
         }
     ],
     "email_button": {
-        "icon": "images/envelope.webp",
+        "icon": "images/envelope.jpg",
         "text": "Email Us"
     },
     "success_toast": "Message Sent",
