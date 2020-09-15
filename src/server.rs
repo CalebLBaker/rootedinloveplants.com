@@ -6,6 +6,7 @@ use serde::Deserialize;
 mod credentials;
 
 const SERVER_ROOT : &str = "/content";
+// const SERVER_ROOT : &str = "/home/caleb/src/rootedinloveplants";
 const DESTINATION : &str = "rootedinloveplants@gmail.com";
 
 #[derive(Deserialize)]

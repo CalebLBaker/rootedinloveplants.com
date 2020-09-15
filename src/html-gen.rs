@@ -58,7 +58,7 @@ fn make_plant<'a>(plant : &'a Plant, email_button : &'a Button) -> Box<dyn horro
                 p(class="description") : plant.description.as_str();
                 div(onclick=format!("displayEmailForm('{}');", name), class="emailButton"){
                     img(src=email_button.icon.as_str(), class="emailIcon");
-                    p(class="emailButtonText") : email_button.text.as_str();
+                    p(class="emailButtonText") : horrorshow::Raw(email_button.text.as_str());
                 }
             }
         }
@@ -68,10 +68,13 @@ fn make_plant<'a>(plant : &'a Plant, email_button : &'a Button) -> Box<dyn horro
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut args = std::env::args();
     let content_file = std::fs::File::open(args.nth(1).ok_or("Content file not specified")?)?;
-    let stylesheet = std::fs::read_to_string(args.next().ok_or("Stylesheet not specified")?)?;
-    let minified_css = minifier::css::minify(stylesheet.as_str())?;
-    let script = std::fs::read_to_string(args.next().ok_or("Script file not specified")?)?;
-    let content : Content = serde_json::from_reader(std::io::BufReader::new(content_file))?;
+    let css_file = args.next().ok_or("Stylesheet not specified")?;
+    let stylesheet = minifier::css::minify(std::fs::read_to_string(css_file.clone())?.as_str())?;
+    let js_file = args.next().ok_or("Script file not specified")?;
+    let script = std::fs::read_to_string(js_file.clone())?;
+    let debug = args.next().is_some();
+    let mut content : Content = serde_json::from_reader(std::io::BufReader::new(content_file))?;
+    content.email_button.text = content.email_button.text.replace(" ", "<br/>");
 
     let doc = owned_html! {
         : horrorshow::helper::doctype::HTML;
@@ -80,7 +83,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 title : content.title.as_str();
                 link(rel="stylesheet", href="fancybox/jquery.fancybox-1.3.4.css", type="text/css", media="screen");
                 link(rel="icon", href=content.icon.as_str());
-                style : horrorshow::Raw(minified_css.as_str());
+                @ if debug {
+                    link(rel="stylesheet", href=css_file.as_str(), type="text/css");
+                }
+                else {
+                    style : horrorshow::Raw(stylesheet.as_str());
+                }
             }
             body {
                 header {
@@ -99,20 +107,22 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         label: content.subject_label.as_str();
                         input(id="subject", type="text");
                         label: content.body_label.as_str();
-                        textarea(id="body", rows="16", cols="120");
+                        textarea(id="body");
                         button(onclick="sendEmail();") : "Send";
                     }
                 }
-                div(id="successToast", class="toast") : content.success_toast.as_str();
-                div(id="errorToast", class="toast") : content.error_toast.as_str();
+                div(id="successToast", class="toast") { p : content.success_toast.as_str(); }
+                div(id="errorToast", class="toast") { p : content.error_toast.as_str(); }
                 script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js");
                 script(type="text/javascript", src="fancybox/jquery.fancybox-1.3.4.pack.js");
 
-                // In production, use inline minified javascript
-                // When debugging, switch which line is commented out to just include the external
-                // js file
-                script(type="text/javascript") : horrorshow::Raw(minifier::js::minify(script.as_str()));
-                // script(type="text/javascript", src="index.js");
+                // In production, use inline minified javascript, when debugging, use separate file
+                @ if debug {
+                    script(type="text/javascript", src=js_file.as_str());
+                }
+                else {
+                    script(type="text/javascript") : horrorshow::Raw(minifier::js::minify(script.as_str()));
+                }
             }
         }
     };
