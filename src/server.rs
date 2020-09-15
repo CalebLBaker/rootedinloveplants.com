@@ -111,6 +111,7 @@ async fn main() {
                                             Some("js") => response.header("Content-Type", "text/javascript"),
                                             Some("png") => response.header("Content-Type", "image/png"),
                                             Some("jpg") => response.header("Content-Type", "image/jpeg"),
+                                            Some("webp") => response.header("Content-Type", "image/webp"),
                                             _ => response,
                                         }
                                     }
