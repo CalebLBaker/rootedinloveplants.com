@@ -5,21 +5,14 @@
 
 p {
     margin: 0;
-    font-size: 1.3rem;
-}
-
-button {
-    font-size: 1.3rem;
 }
 
 h3 {
     margin: 0.4rem;
-    font-size: 1.4rem;
 }
 
 h2 {
     margin: 0.4rem;
-    font-size: 1.6rem;
 }
 
 #plant-list {
@@ -59,7 +52,7 @@ a {
 
 #emailForm {
     display: grid;
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
 }
 
 .toast{
@@ -103,15 +96,10 @@ a {
 
 textarea {
     font-family:sans-serif;
-    font-size: 1.3rem;
-    max-width: 85vw;
+    max-width: 80vw;
     width: 60rem;
     max-height: 50vh;
     height: 24rem;
-}
-
-input {
-    font-size: 1.3rem;
 }
 
 header {
