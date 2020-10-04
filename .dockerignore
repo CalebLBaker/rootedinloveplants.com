@@ -1,0 +1,12 @@
+*.sh
+Cargo.lock
+Dockerfile
+.dockerignore
+.gcloudignore
+.git
+.gitignore
+images_extra
+index.html
+target
+vendor/
+

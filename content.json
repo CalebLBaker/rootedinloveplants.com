@@ -1,88 +1,100 @@
 {
     "title" : "Rooted in Love",
+    "icon": "images/leaf.png",
+    "banner": "images/banner option 1.jpg",
     "plants" : [
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
+            "name" : "Rooted English Ivy",
+            "price" : 5.00,
+            "description" :
+                "This is a wonderful little plant. This rooted ivy is well established and is ready to thrive under your care. English ivy is a very good beginner plant. It loves bright indirect sunlight, watering when it starts to get a bit dry, and lots of humidity "
+        },
+        {
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "plant",
             "price" : 4.50,
             "description" :
                 "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
         },
         {
-            "picture" : "images/plant.webp",
-            "name" : "plant",
-            "price" : 4.50,
-            "description" :
-                "This is a wonderful little plant. It come from a place. You'll need to water it every once in a while. Yay!"
-        },
-        {
-            "picture" : "images/plant.webp",
+            "picture" : "images/ivy baby four leaf.jpg",
             "name" : "other plant",
-            "price" : 15.23
+            "price" : 15.23,
+            "description": "This plant has a description too now"
         }
-    ]
+    ],
+    "email_button": {
+        "icon": "images/envelope.jpg",
+        "text": "Email Us"
+    },
+    "success_toast": "Message Sent",
+    "error_toast": "Message Could Not Be Sent",
+    "address_label": "Enter Your Email Address:",
+    "subject_label": "Subject:",
+    "body_label": "Message:"
 }
 

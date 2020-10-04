@@ -4,8 +4,26 @@ version = "0.1.0"
 authors = ["CalebLBaker <calebbaker774@gmail.com>"]
 edition = "2018"
 
+[[bin]]
+name = "html-gen"
+path = "src/html-gen.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+futures = "0.3.5"
+http = "0.2.1"
+hyper = "0.13.7"
+lettre = "0.9.3"
+lettre_email = "0.9.4"
+serde = { version = "1.0.115", features = ["derive"] }
+serde_json = "1.0.57"
+tokio = { version = "0.2.22", features = ["macros"] }
+urlencoding = "1.1.1"
 horrorshow = "0.8.3"
-json = "0.12.4"
+minifier = "0.0.36"
+
